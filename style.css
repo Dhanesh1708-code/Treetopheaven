@@ -1,0 +1,130 @@
+/* ==========================================================================
+   TREE TOP HEAVEN AND ECO RESORT — MAIN STYLESHEET (style.css)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #F4F1EA;
+  --text-primary: #222B26;
+  --card-bg: rgba(253, 251, 247, 0.95);
+  --nav-bg: rgba(244, 241, 234, 0.92);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+/* 1. Theme Mood Overrides (Dawn, Rain, Midnight) */
+body.theme-dawn {
+  --bg-primary: #FAF4EB;
+  --card-bg: rgba(255, 249, 240, 0.96);
+  --nav-bg: rgba(250, 244, 235, 0.93);
+}
+
+body.theme-rain {
+  --bg-primary: #E8EDE9;
+  --card-bg: rgba(240, 245, 242, 0.95);
+  --nav-bg: rgba(232, 237, 233, 0.94);
+}
+
+body.theme-midnight {
+  --bg-primary: #08120D;
+  --text-primary: #EAE5D9;
+  --card-bg: rgba(15, 35, 24, 0.94);
+  --nav-bg: rgba(8, 18, 13, 0.95);
+  color: #EAE5D9 !important;
+}
+
+body.theme-midnight .bg-earth-sand { background-color: #0F2318 !important; }
+body.theme-midnight .bg-earth-sandCard { background-color: #142C20 !important; color: #EAE5D9 !important; }
+body.theme-midnight .text-earth-sage { color: #8BE0B8 !important; }
+
+/* 2. Canvas Particle Layer */
+#ambientCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 35;
+}
+
+/* 3. Glassmorphism Utilities */
+.glass-nav-earth {
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(140, 98, 57, 0.22);
+}
+
+.glass-booking-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(140, 98, 57, 0.35);
+  box-shadow: 0 20px 45px rgba(15, 35, 24, 0.18);
+}
+
+/* 4. Audio Equalizer Waveform */
+.eq-bar {
+  display: inline-block;
+  width: 3px;
+  background: #8C6239;
+  border-radius: 2px;
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
+}
+.eq-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+.eq-bar:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+.eq-bar:nth-child(4) { height: 18px; animation-delay: 0.45s; }
+
+.eq-paused .eq-bar {
+  animation: none !important;
+  height: 4px !important;
+  opacity: 0.4;
+}
+
+@keyframes eqBounce {
+  0% { height: 4px; }
+  50% { height: 16px; }
+  100% { height: 22px; }
+}
+
+/* 5. 360° Hotspot Pulsing Beacons */
+.hotspot-beacon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+.hotspot-beacon .ping {
+  animation: beaconPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes beaconPing {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* 6. Carousel Track */
+.carousel-track-wrapper {
+  display: flex;
+  gap: 1.75rem;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 7. Map Pins */
+.map-pin-btn {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.map-pin-btn:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+}
+
+/* 8. Print Media for Boarding Pass */
+@media print {
+  body * { visibility: hidden; }
+  #boardingPassModal, #boardingPassModal * { visibility: visible; }
+  #boardingPassModal { position: absolute; left: 0; top: 0; width: 100%; background: white !important; }
+}
