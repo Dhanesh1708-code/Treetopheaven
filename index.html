@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TREE TOP HEAVEN AND ECO RESORT — Elevated Canopy Luxury</title>
+  <meta name="description" content="Immerse yourself in sustainable luxury perched high above the virgin rainforest canopy at TREE TOP HEAVEN AND ECO RESORT. Monteverde Cloud Forest Reserve, Costa Rica.">
+
+  <!-- Google Fonts: Playfair Display, Cormorant Garamond & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons & Lucide CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            earth: {
+              sand: '#F4F1EA',
+              sandWarm: '#EAE5D9',
+              sandCard: '#FDFBF7',
+              sage: '#2D4A3E',
+              sageDark: '#1E332A',
+              sageLight: '#3D6152',
+              cedar: '#8C6239',
+              cedarHover: '#9F7143',
+              cedarLight: '#B5885C',
+              cedarMuted: 'rgba(140, 98, 57, 0.15)',
+              forest: '#0F2318',
+              forestDark: '#08140D',
+              forestCard: '#142C20',
+              charcoal: '#222B26',
+              muted: '#5A6E62',
+              gold: '#D4AF37'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            playfair: ['"Playfair Display"', 'Georgia', 'serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          },
+          boxShadow: {
+            'cedar-sm': '0 4px 14px rgba(140, 98, 57, 0.18)',
+            'cedar-glow': '0 8px 25px rgba(140, 98, 57, 0.35)',
+            'sage-card': '0 12px 35px rgba(45, 74, 62, 0.12)',
+            'forest-card': '0 15px 40px rgba(15, 35, 24, 0.3)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Modular External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-earth-sand text-earth-charcoal antialiased selection:bg-earth-cedar selection:text-earth-sand">
+
+  <!-- Ambient Particles Layer -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Soundscape Audio Source -->
+  <audio id="forestAudio" loop preload="none">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=forest-birds-and-wind-112284.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Competition Presenter Bar -->
+  <div id="presenterBar" class="bg-earth-forestDark text-earth-sandWarm border-b border-earth-cedar/40 px-4 py-1.5 text-xs z-50 relative flex flex-wrap items-center justify-between gap-3 shadow-md">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-earth-cedar text-earth-sand">
+        <i data-lucide="trophy" class="w-3 h-3 mr-1"></i> Competition Demo Edition
+      </span>
+      <span class="hidden sm:inline text-[11px] text-earth-sandWarm/80">Monteverde Biosphere Canopy System</span>
+    </div>
+    <div class="flex items-center gap-3 overflow-x-auto py-0.5 text-[11px]">
+      <span class="text-earth-cedarLight font-semibold hidden md:inline">Jump:</span>
+      <a href="#hero" class="hover:text-earth-gold transition-colors">1. Hero</a>
+      <a href="#accommodations" class="hover:text-earth-gold transition-colors">2. Suites</a>
+      <a href="#hotspot-section" class="hover:text-earth-gold transition-colors">3. 360° Hotspots</a>
+      <a href="#interactive-map" class="hover:text-earth-gold transition-colors">4. Biosphere Map</a>
+      <a href="#booking-calculator" class="hover:text-earth-gold transition-colors">5. Eco-Calculator</a>
+      <button onclick="openQuizModal()" class="text-earth-gold font-semibold underline hover:text-earth-sand transition">
+        <i data-lucide="compass" class="inline w-3 h-3 mr-0.5"></i> Matchmaker Quiz
+      </button>
+    </div>
+  </div>
+
+  <!-- Sticky Glassmorphic Navbar -->
+  <header id="navbar" class="sticky top-0 left-0 right-0 z-40 transition-all duration-300 py-3 glass-nav-earth">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border border-earth-cedar/40 flex items-center justify-center bg-earth-forest text-earth-sand group-hover:bg-earth-cedar transition-all duration-300 shadow-sm flex-shrink-0">
+          <i data-lucide="trees" class="w-5 h-5 text-earth-sand"></i>
+        </div>
+        <div>
+          <span class="font-playfair text-lg sm:text-xl font-bold tracking-tight text-earth-forest group-hover:text-earth-cedar transition-colors">
+            TREE TOP HEAVEN
+          </span>
+          <span class="block text-[9px] tracking-[0.22em] text-earth-cedar uppercase font-semibold -mt-0.5">
+            & ECO RESORT • CANOPY SANCTUARY
+          </span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6">
+        <a href="#accommodations" class="text-xs font-semibold tracking-wider uppercase text-earth-charcoal hover:text-earth-cedar transition-colors">Sanctuaries</a>
+        <a href="#hotspot-section" class="text-xs font-semibold tracking-wider uppercase text-earth-charcoal hover:text-earth-cedar transition-colors">360° Inspector</a>
+        <a href="#interactive-map" class="text-xs font-semibold tracking-wider uppercase text-earth-charcoal hover:text-earth-cedar transition-colors">Biosphere Map</a>
+        <a href="about.html" class="text-xs font-semibold tracking-wider uppercase text-earth-charcoal hover:text-earth-cedar transition-colors">About Us</a>
+        <a href="#sustainability" class="text-xs font-semibold tracking-wider uppercase text-earth-charcoal hover:text-earth-cedar transition-colors">Stewardship</a>
+        <a href="#booking-calculator" class="text-xs font-semibold tracking-wider uppercase text-earth-charcoal hover:text-earth-cedar transition-colors">Rates & Impact</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Weather Ambiance Selector -->
+        <div class="relative group">
+          <button id="ambianceDropdownBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-earth-cedar/40 bg-earth-sandCard/90 hover:bg-earth-sand text-earth-forest text-xs font-semibold transition-all shadow-sm">
+            <span id="currentAmbianceIcon"><i data-lucide="sun" class="w-3.5 h-3.5 text-amber-600"></i></span>
+            <span class="hidden xl:inline text-[11px] font-bold uppercase tracking-wider" id="currentAmbianceLabel">Noon</span>
+            <i data-lucide="chevron-down" class="w-3 h-3 text-earth-muted"></i>
+          </button>
+          <div id="ambianceMenu" class="absolute right-0 mt-2 w-48 bg-earth-sandCard rounded-2xl border border-earth-cedar/40 shadow-2xl p-2 hidden z-50 space-y-1">
+            <button onclick="setCanopyAmbiance('dawn')" class="w-full text-left flex items-center gap-2 px-2.5 py-1.5 rounded-xl hover:bg-earth-sand text-xs font-medium"><i data-lucide="sunrise" class="w-3.5 h-3.5 text-amber-500"></i> Golden Dawn</button>
+            <button onclick="setCanopyAmbiance('noon')" class="w-full text-left flex items-center gap-2 px-2.5 py-1.5 rounded-xl hover:bg-earth-sand text-xs font-medium"><i data-lucide="sun" class="w-3.5 h-3.5 text-amber-600"></i> Emerald Noon</button>
+            <button onclick="setCanopyAmbiance('rain')" class="w-full text-left flex items-center gap-2 px-2.5 py-1.5 rounded-xl hover:bg-earth-sand text-xs font-medium"><i data-lucide="cloud-rain" class="w-3.5 h-3.5 text-teal-600"></i> Rainforest Rain</button>
+            <button onclick="setCanopyAmbiance('midnight')" class="w-full text-left flex items-center gap-2 px-2.5 py-1.5 rounded-xl hover:bg-earth-sand text-xs font-medium"><i data-lucide="moon-star" class="w-3.5 h-3.5 text-indigo-400"></i> Bioluminescent Night</button>
+          </div>
+        </div>
+
+        <!-- Audio Toggle Pill -->
+        <button id="navAudioToggleBtn" class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-earth-cedar/35 bg-earth-sandCard/80 hover:bg-earth-sand text-earth-forest text-xs font-medium">
+          <span id="navAudioIcon"><i data-lucide="volume-x" class="w-3.5 h-3.5 text-earth-muted"></i></span>
+          <span class="hidden md:inline text-[11px] font-semibold uppercase tracking-wider text-earth-muted" id="navAudioLabel">Audio</span>
+        </button>
+
+        <a href="#booking-calculator" class="inline-flex items-center justify-center px-4 sm:px-5 py-2 text-xs font-semibold uppercase tracking-widest bg-earth-cedar hover:bg-earth-cedarHover text-earth-sand rounded-full transition shadow-cedar-sm">
+          Reserve
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Floating Soundscape Widget -->
+  <aside id="audioWidget" class="fixed bottom-6 left-6 z-40 max-w-[340px] bg-earth-forest/95 backdrop-blur-md text-earth-sand border border-earth-cedar/40 rounded-2xl p-3.5 shadow-2xl transition select-none">
+    <div class="flex items-center gap-3">
+      <button id="floatingAudioToggleBtn" class="w-12 h-12 rounded-xl bg-earth-cedar hover:bg-earth-cedarHover text-earth-sand flex items-center justify-center shadow-cedar-sm flex-shrink-0">
+        <span id="floatingAudioIcon"><i data-lucide="volume-2" class="w-5 h-5"></i></span>
+      </button>
+      <div class="flex-grow min-w-0">
+        <div class="flex items-center justify-between gap-2">
+          <span class="font-playfair text-xs sm:text-sm font-semibold text-earth-sand truncate">Forest Soundscape</span>
+          <span id="audioStatusBadge" class="text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-earth-sandWarm border border-white/10">Muted</span>
+        </div>
+        <div class="flex items-center justify-between gap-2 mt-1">
+          <span id="soundscapeTrackName" class="text-[11px] text-earth-sandWarm/75 truncate font-light">Monteverde Birds & Canopy Wind</span>
+          <div id="equalizerBars" class="flex items-end gap-[3px] h-5 eq-paused flex-shrink-0">
+            <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2.5 pt-2 border-t border-earth-cedar/25 flex items-center gap-1.5 overflow-x-auto text-[10px]">
+      <button onclick="setSoundscapePreset('birds')" class="px-2 py-0.5 rounded-md bg-earth-cedar/30 hover:bg-earth-cedar text-earth-sandWarm transition">🐦 Birds</button>
+      <button onclick="setSoundscapePreset('rain')" class="px-2 py-0.5 rounded-md bg-earth-cedar/30 hover:bg-earth-cedar text-earth-sandWarm transition">🌧️ Canopy Rain</button>
+      <button onclick="setSoundscapePreset('night')" class="px-2 py-0.5 rounded-md bg-earth-cedar/30 hover:bg-earth-cedar text-earth-sandWarm transition">🐸 Night Bio</button>
+      <button onclick="setSoundscapePreset('wind')" class="px-2 py-0.5 rounded-md bg-earth-cedar/30 hover:bg-earth-cedar text-earth-sandWarm transition">💨 Mist Wind</button>
+    </div>
+    <div class="mt-2 pt-2 border-t border-earth-cedar/25 flex items-center gap-2.5 text-earth-sandWarm/80 text-xs">
+      <i data-lucide="volume-1" class="w-3.5 h-3.5 text-earth-cedarLight"></i>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.75" class="w-full h-1.5 bg-earth-forestDark rounded-lg cursor-pointer accent-earth-cedar">
+      <i data-lucide="volume-2" class="w-3.5 h-3.5 text-earth-cedarLight"></i>
+    </div>
+  </aside>
+
+  <!-- 3. Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <img id="heroBgImage" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=80" alt="Canopy Retreat" class="w-full h-full object-cover filter brightness-[0.52] contrast-[1.15] scale-105 transition-all duration-1000">
+      <div class="absolute inset-0 bg-gradient-to-t from-earth-sand via-earth-forest/40 to-earth-forestDark/70"></div>
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto text-center mt-4">
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-earth-forest/85 backdrop-blur-md border border-earth-cedar/40 text-xs uppercase tracking-[0.25em] text-earth-sandWarm font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          TREE TOP HEAVEN • Monteverde Cloud Forest Reserve
+        </div>
+        <button onclick="openQuizModal()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-earth-cedar/80 hover:bg-earth-cedar text-earth-sand text-xs font-semibold backdrop-blur-md transition shadow">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-earth-gold"></i> Find Your Sanctuary Quiz
+        </button>
+      </div>
+
+      <h1 class="font-playfair text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-earth-sand leading-[1.15] mb-6 drop-shadow-lg">
+        Elevate Your Sanctuary — <br class="hidden sm:inline" />
+        <span class="italic font-normal text-earth-sandWarm">Where Opulence Meets the Canopy</span>
+      </h1>
+
+      <p class="text-base sm:text-xl text-earth-sand/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 drop-shadow">
+        Immerse yourself in sustainable luxury perched high above the jungle floor. Architectural cedar retreats sculpted in living harmony with ancient rainforest canopy giants.
+      </p>
+
+      <div>
+        <a href="#booking-calculator" class="inline-flex items-center gap-2 px-8 py-3.5 bg-earth-cedar hover:bg-earth-cedarHover text-earth-sand font-bold text-xs uppercase tracking-widest rounded-full transition shadow-cedar-glow hover:scale-105">
+          <span>Calculate Stay & Reserve Sanctuary</span>
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Accommodations Carousel Showcase -->
+  <section id="accommodations" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <span class="text-xs uppercase tracking-[0.25em] text-earth-cedar font-bold">Elevated Havens</span>
+        <h2 class="font-playfair text-3xl sm:text-5xl text-earth-sage font-bold mt-1">Floating Sanctuaries</h2>
+      </div>
+      <div class="flex items-center gap-3 mt-6 md:mt-0">
+        <button id="carouselPrevBtn" class="w-11 h-11 rounded-full border border-earth-cedar/40 bg-earth-sandCard text-earth-cedar hover:bg-earth-cedar hover:text-earth-sand flex items-center justify-center transition shadow-sm"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+        <button id="carouselNextBtn" class="w-11 h-11 rounded-full border border-earth-cedar/40 bg-earth-sandCard text-earth-cedar hover:bg-earth-cedar hover:text-earth-sand flex items-center justify-center transition shadow-sm"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+      </div>
+    </div>
+
+    <div class="overflow-hidden" id="carouselViewport">
+      <div class="carousel-track-wrapper" id="carouselTrack">
+        <!-- Room 1 -->
+        <div class="carousel-card-item flex-none w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.17rem)] bg-earth-sandCard rounded-3xl overflow-hidden border border-earth-cedar/25 shadow-sage-card flex flex-col justify-between group">
+          <div>
+            <div class="relative h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=1000&q=80" alt="Obsidian Villa" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <span class="absolute top-4 left-4 bg-earth-forest/90 text-earth-sand text-[10px] uppercase font-bold tracking-wider px-3 py-1.5 rounded-full">Signature Tier</span>
+              <span class="absolute bottom-4 right-4 bg-earth-sandCard/95 text-earth-forest px-3.5 py-1.5 rounded-xl font-semibold shadow font-playfair text-xl text-earth-cedar font-bold">$1,200 <span class="text-[11px] text-earth-muted">/ nt</span></span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-playfair text-2xl font-bold text-earth-sage mb-2">The Obsidian Villa</h3>
+              <p class="text-xs sm:text-sm text-earth-muted font-light leading-relaxed mb-4">Panoramic glass walls framing mist, cantilevered volcanic plunge pool floating 95ft over the canyon, and butler service.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-earth-sandWarm mt-4 flex items-center justify-between">
+            <button onclick="openHotspotModal('obsidian')" class="text-xs text-earth-cedar hover:underline font-semibold flex items-center gap-1"><i data-lucide="scan-eye" class="w-3.5 h-3.5"></i> 360° Hotspots</button>
+            <button class="view-room-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-earth-sage text-earth-sand" data-room="obsidian">Details</button>
+          </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="carousel-card-item flex-none w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.17rem)] bg-earth-sandCard rounded-3xl overflow-hidden border border-earth-cedar/25 shadow-sage-card flex flex-col justify-between group">
+          <div>
+            <div class="relative h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=80" alt="Cedar Duplex" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <span class="absolute top-4 left-4 bg-earth-forest/90 text-earth-sand text-[10px] uppercase font-bold tracking-wider px-3 py-1.5 rounded-full">Family Estate</span>
+              <span class="absolute bottom-4 right-4 bg-earth-sandCard/95 text-earth-forest px-3.5 py-1.5 rounded-xl font-semibold shadow font-playfair text-xl text-earth-cedar font-bold">$950 <span class="text-[11px] text-earth-muted">/ nt</span></span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-playfair text-2xl font-bold text-earth-sage mb-2">The Cedar Duplex</h3>
+              <p class="text-xs sm:text-sm text-earth-muted font-light leading-relaxed mb-4">Two-story natural timber suite wrapped around an ironwood giant, hammock terrace, and outdoor copper soaking tub.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-earth-sandWarm mt-4 flex items-center justify-between">
+            <button onclick="openHotspotModal('cedar')" class="text-xs text-earth-cedar hover:underline font-semibold flex items-center gap-1"><i data-lucide="scan-eye" class="w-3.5 h-3.5"></i> 360° Hotspots</button>
+            <button class="view-room-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-earth-sage text-earth-sand" data-room="cedar">Details</button>
+          </div>
+        </div>
+
+        <!-- Room 3 -->
+        <div class="carousel-card-item flex-none w-full md:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.17rem)] bg-earth-sandCard rounded-3xl overflow-hidden border border-earth-cedar/25 shadow-sage-card flex flex-col justify-between group">
+          <div>
+            <div class="relative h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80" alt="Stargazer Loft" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <span class="absolute top-4 left-4 bg-earth-forest/90 text-earth-sand text-[10px] uppercase font-bold tracking-wider px-3 py-1.5 rounded-full">Honeymoon Loft</span>
+              <span class="absolute bottom-4 right-4 bg-earth-sandCard/95 text-earth-forest px-3.5 py-1.5 rounded-xl font-semibold shadow font-playfair text-xl text-earth-cedar font-bold">$850 <span class="text-[11px] text-earth-muted">/ nt</span></span>
+            </div>
+            <div class="p-6">
+              <h3 class="font-playfair text-2xl font-bold text-earth-sage mb-2">The Stargazer Loft</h3>
+              <p class="text-xs sm:text-sm text-earth-muted font-light leading-relaxed mb-4">Motorized retractable glass skylight directly above the king bed, private botanical cedar sauna, and celestial telescope.</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 border-t border-earth-sandWarm mt-4 flex items-center justify-between">
+            <button onclick="openHotspotModal('stargazer')" class="text-xs text-earth-cedar hover:underline font-semibold flex items-center gap-1"><i data-lucide="scan-eye" class="w-3.5 h-3.5"></i> 360° Hotspots</button>
+            <button class="view-room-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-earth-sage text-earth-sand" data-room="stargazer">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 360° Hotspots Section -->
+  <section id="hotspot-section" class="py-20 px-4 sm:px-6 lg:px-8 bg-earth-forest text-earth-sand">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-earth-sandWarm font-semibold">Interactive Immersion</span>
+        <h2 class="font-playfair text-3xl sm:text-5xl font-bold mt-1 text-earth-sand">360° Canopy Architecture Inspector</h2>
+      </div>
+
+      <div class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden border-2 border-earth-cedar/50 shadow-2xl bg-earth-forestDark">
+        <img id="hotspotStageImg" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=80" alt="Villa Inspector" class="w-full h-[420px] sm:h-[540px] object-cover filter brightness-[0.88] transition duration-700">
+        
+        <div class="hotspot-beacon top-[35%] left-[25%]" onclick="showHotspotDetail(1)">
+          <div class="w-10 h-10 rounded-full bg-amber-500/40 ping absolute inset-0"></div>
+          <div class="w-8 h-8 rounded-full bg-amber-500 border-2 border-white text-white flex items-center justify-center font-bold text-xs shadow-lg">1</div>
+        </div>
+
+        <div class="hotspot-beacon top-[65%] left-[48%]" onclick="showHotspotDetail(2)">
+          <div class="w-10 h-10 rounded-full bg-emerald-500/40 ping absolute inset-0"></div>
+          <div class="w-8 h-8 rounded-full bg-emerald-600 border-2 border-white text-white flex items-center justify-center font-bold text-xs shadow-lg">2</div>
+        </div>
+
+        <div class="hotspot-beacon top-[22%] left-[75%]" onclick="showHotspotDetail(3)">
+          <div class="w-10 h-10 rounded-full bg-sky-500/40 ping absolute inset-0"></div>
+          <div class="w-8 h-8 rounded-full bg-sky-500 border-2 border-white text-white flex items-center justify-center font-bold text-xs shadow-lg">3</div>
+        </div>
+
+        <div id="hotspotCard" class="absolute bottom-6 left-6 right-6 sm:left-auto sm:right-6 sm:max-w-md bg-earth-sandCard text-earth-charcoal p-5 rounded-2xl border border-earth-cedar/40 shadow-2xl">
+          <div class="flex items-start justify-between gap-3 mb-2">
+            <div class="flex items-center gap-2">
+              <span id="hotspotBadgeNum" class="w-6 h-6 rounded-full bg-earth-cedar text-white text-xs font-bold flex items-center justify-center">1</span>
+              <h4 id="hotspotTitle" class="font-playfair text-lg font-bold text-earth-sage">Cantilevered Heated Plunge Pool</h4>
+            </div>
+            <button onclick="closeHotspotCard()" class="text-earth-muted hover:text-earth-cedar p-1"><i data-lucide="x" class="w-4 h-4"></i></button>
+          </div>
+          <p id="hotspotDesc" class="text-xs text-earth-muted font-light leading-relaxed mb-3">Heated to 98°F via clean geothermal loops.</p>
+          <div class="flex items-center justify-between text-[11px] border-t border-earth-cedar/20 pt-2 text-earth-cedar font-semibold">
+            <span id="hotspotSpec">Temp: 98°F Constant</span>
+            <span class="text-earth-sage">Zero Tree Damage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Biosphere Reserve Map & Telemetry HUD -->
+  <section id="interactive-map" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs uppercase tracking-[0.25em] text-earth-cedar font-bold">Spatial Geography</span>
+      <h2 class="font-playfair text-3xl sm:text-5xl text-earth-sage font-bold mt-1">Interactive Biosphere Map</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <div class="lg:col-span-8 bg-earth-forestDark rounded-3xl p-6 border-2 border-earth-cedar/40 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+        <div class="relative h-[340px] sm:h-[420px] w-full rounded-2xl overflow-hidden bg-[#0A160F] border border-earth-cedar/20 flex items-center justify-center">
+          <!-- Clickable Pins -->
+          <div class="absolute top-[32%] left-[27%] map-pin-btn cursor-pointer z-20" onclick="selectMapLocation('obsidian')">
+            <div class="w-9 h-9 rounded-full bg-earth-cedar text-white flex items-center justify-center border-2 border-earth-gold shadow-lg"><i data-lucide="home" class="w-4 h-4"></i></div>
+            <span class="text-[10px] text-earth-gold font-bold block mt-1">Obsidian Villa</span>
+          </div>
+          <div class="absolute top-[46%] left-[47%] map-pin-btn cursor-pointer z-20" onclick="selectMapLocation('cedar')">
+            <div class="w-9 h-9 rounded-full bg-earth-sage text-white flex items-center justify-center border-2 border-emerald-400 shadow-lg"><i data-lucide="trees" class="w-4 h-4"></i></div>
+            <span class="text-[10px] text-emerald-300 font-bold block mt-1">Cedar Duplex</span>
+          </div>
+          <div class="absolute top-[36%] left-[72%] map-pin-btn cursor-pointer z-20" onclick="selectMapLocation('stargazer')">
+            <div class="w-9 h-9 rounded-full bg-sky-800 text-white flex items-center justify-center border-2 border-sky-400 shadow-lg"><i data-lucide="sparkles" class="w-4 h-4"></i></div>
+            <span class="text-[10px] text-sky-300 font-bold block mt-1">Stargazer Loft</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 bg-earth-sandCard rounded-3xl p-6 sm:p-8 border border-earth-cedar/30 shadow-sage-card flex flex-col justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-earth-cedar block">Live Telemetry HUD</span>
+          <h3 id="mapLocationTitle" class="font-playfair text-2xl font-bold text-earth-sage mb-2">The Obsidian Villa</h3>
+          <p id="mapLocationDesc" class="text-xs text-earth-muted font-light leading-relaxed mb-6">Perched on the western canyon precipice with uninterrupted views of Pacific cloud inversion.</p>
+
+          <div class="space-y-3 mb-6">
+            <div class="flex justify-between p-3 rounded-xl bg-earth-sand text-xs"><span>Altitude:</span><strong id="mapElevationBadge" class="text-earth-sage font-bold">1,820m Alt</strong></div>
+            <div class="flex justify-between p-3 rounded-xl bg-earth-sand text-xs"><span>Temperature:</span><strong id="mapTemp" class="text-earth-sage font-bold">21.4°C / 70.5°F</strong></div>
+            <div class="flex justify-between p-3 rounded-xl bg-earth-sand text-xs"><span>Humidity:</span><strong id="mapHumidity" class="text-earth-sage font-bold">88% (Pure Mist)</strong></div>
+            <div class="flex justify-between p-3 rounded-xl bg-earth-sand text-xs"><span>Air Purity:</span><strong id="mapAir" class="text-emerald-700 font-bold">99.8% (AQI 4)</strong></div>
+          </div>
+        </div>
+        <button onclick="selectSanctuaryFromMap()" class="w-full py-3 rounded-xl bg-earth-cedar text-earth-sand font-bold text-xs uppercase tracking-widest shadow-cedar-sm">Select For Reservation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Calculator Section -->
+  <section id="booking-calculator" class="py-24 px-4 sm:px-6 lg:px-8 bg-earth-forest/95 text-earth-sand">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-earth-gold font-semibold">Live Reservation Engine</span>
+        <h2 class="font-playfair text-3xl sm:text-5xl font-bold mt-1 text-earth-sand">Stay & Ecological Impact Calculator</h2>
+      </div>
+
+      <div class="bg-earth-forestCard rounded-3xl p-6 sm:p-10 border border-earth-cedar/40 shadow-2xl">
+        <form id="calculatorForm" onsubmit="generateBoardingPass(event)" class="space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="md:col-span-2">
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-earth-gold mb-1.5">Sanctuary Tier</label>
+              <select id="calcTier" onchange="runCalculation()" class="w-full bg-earth-forestDark border border-earth-cedar/40 rounded-xl px-4 py-3 text-xs text-earth-sand font-medium">
+                <option value="obsidian" data-rate="1200" selected>The Obsidian Villa ($1,200 / nt)</option>
+                <option value="cedar" data-rate="950">The Cedar Duplex ($950 / nt)</option>
+                <option value="stargazer" data-rate="850">The Stargazer Loft ($850 / nt)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-earth-gold mb-1.5">Check-in</label>
+              <input type="date" id="calcCheckIn" required onchange="runCalculation()" class="w-full bg-earth-forestDark border border-earth-cedar/40 rounded-xl px-4 py-3 text-xs text-earth-sand">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-earth-gold mb-1.5">Check-out</label>
+              <input type="date" id="calcCheckOut" required onchange="runCalculation()" class="w-full bg-earth-forestDark border border-earth-cedar/40 rounded-xl px-4 py-3 text-xs text-earth-sand">
+            </div>
+          </div>
+
+          <!-- Addons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-earth-forestDark border border-earth-cedar/30 text-xs">
+              <input type="checkbox" id="addonHeli" onchange="runCalculation()" class="accent-earth-cedar"> Heli Flight (+$350)
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-earth-forestDark border border-earth-cedar/30 text-xs">
+              <input type="checkbox" id="addonDining" onchange="runCalculation()" checked class="accent-earth-cedar"> Michelin Dining (+$180/p)
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-earth-forestDark border border-earth-cedar/30 text-xs">
+              <input type="checkbox" id="addonBioWalk" onchange="runCalculation()" checked class="accent-earth-cedar"> Nocturnal Bio-Walk (+$75/p)
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-earth-forestDark border border-earth-cedar/30 text-xs">
+              <input type="checkbox" id="addonSpa" onchange="runCalculation()" class="accent-earth-cedar"> Cloud Spa (+$140)
+            </label>
+          </div>
+
+          <!-- Summary -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-7 p-4 rounded-xl bg-earth-forestDark text-xs text-emerald-300">
+              <span class="block font-bold mb-1">Registered Ecological Impact:</span>
+              <span id="ecoTreesCount" class="font-bold text-lg">30 Trees</span> planted | <span id="ecoCarbonOffset">0.9 Tons</span> CO2 offset
+            </div>
+            <div class="lg:col-span-5 p-4 rounded-xl bg-earth-forestDark text-right">
+              <span class="text-xs text-earth-sandWarm">Estimated Grand Total:</span>
+              <strong id="calcGrandTotal" class="text-earth-gold font-playfair text-2xl block">$3,930</strong>
+              <button type="submit" class="w-full mt-3 py-3 rounded-xl bg-earth-cedar text-earth-sand font-bold text-xs uppercase tracking-widest shadow-cedar-glow">
+                Generate VIP Boarding Pass
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals: Boarding Pass, Quiz, Room Details -->
+  <div id="boardingPassModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-earth-sandCard rounded-3xl max-w-lg w-full border-2 border-earth-cedar/60 shadow-2xl p-6 relative">
+      <h3 class="font-playfair text-xl font-bold text-earth-sage">CANOPY SANCTUARY PASS</h3>
+      <p id="passSanctuary" class="text-earth-cedar font-bold text-sm mb-4">The Obsidian Villa</p>
+      <div class="p-3 bg-earth-sand rounded-xl text-xs space-y-1 mb-4">
+        <div>Guest: <strong id="passGuestName">Elena Vance</strong></div>
+        <div>Check-in: <strong id="passCheckIn">2026-10-12</strong></div>
+        <div>Total: <strong id="passGrandTotal" class="text-earth-cedar font-bold">$3,930</strong></div>
+      </div>
+      <div class="flex justify-end gap-2">
+        <button onclick="window.print()" class="px-4 py-2 border border-earth-cedar/40 rounded-full text-xs font-semibold">Print PDF</button>
+        <button onclick="closeBoardingPassModal()" class="px-5 py-2 bg-earth-cedar text-earth-sand rounded-full text-xs font-bold uppercase">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="quizModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-earth-sandCard rounded-3xl max-w-md w-full p-6 text-center">
+      <h3 class="font-playfair text-2xl font-bold text-earth-sage mb-4">Canopy Matchmaker</h3>
+      <div id="quizStep1" class="space-y-2">
+        <button onclick="answerQuiz(1, 'obsidian')" class="w-full p-3 rounded-xl border border-earth-cedar/30 text-xs font-medium">Romantic Couples Retreat</button>
+        <button onclick="answerQuiz(1, 'cedar')" class="w-full p-3 rounded-xl border border-earth-cedar/30 text-xs font-medium">Family & Estate Celebration</button>
+        <button onclick="answerQuiz(1, 'stargazer')" class="w-full p-3 rounded-xl border border-earth-cedar/30 text-xs font-medium">Celestial Stargazer Honeymoon</button>
+      </div>
+      <div id="quizResult" class="hidden space-y-3 mt-4">
+        <h4 id="quizMatchTitle" class="font-playfair text-xl font-bold text-earth-sage">The Obsidian Villa</h4>
+        <button onclick="applyQuizMatch()" class="w-full py-2.5 bg-earth-cedar text-earth-sand rounded-full text-xs font-bold uppercase">Apply & Reserve</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Modular JavaScript -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
